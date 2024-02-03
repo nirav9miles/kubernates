@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-deployment
+  labels:
+    env: prod
+    tier: front
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: front
+      type: qa
+  template:
+    metadata:
+      labels:
+        tier: front
+        type: qa
+    spec:
+      containers:
+      - name: node-app
+        image: nirav8miles/node-app:latest
+
+
+
+
+
+
+
